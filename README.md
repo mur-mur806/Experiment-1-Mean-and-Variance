@@ -45,17 +45,58 @@ It is calculated as:
 13. Stop.
 
 
+# Name : MURUGA PERUMAL P
+# Reg No : 25016797
+# Slot Name: 3P1-1
+
+
 # Program: 
+```
+# Exp: No-1
+import numpy as np
 
+# Input: Enter the number of arrivals separated by space
+L = [int(i) for i in input("Enter arrival data: ").split()]
+N = len(L)
+M = max(L)
 
+x = []
+f = []
 
+# Counting frequency of each arrival
+for i in range(M + 1):
+    c = 0
+    for j in range(N):
+        if L[j] == i:
+            c += 1
+    f.append(c)
+    x.append(i)   
 
+sf = np.sum(f)
 
+# Calculating probability for each occurrence
+p = [f[i] / sf for i in range(M + 1)]
 
+# Mean of arrival (expected value)
+mean = np.inner(x, p)
+
+# Second moment (E[X²])
+EX2 = np.inner(np.square(x), p)
+
+# Variance and standard deviation
+var = EX2 - mean**2
+SD = np.sqrt(var)
+
+print(f"The Mean arrival rate is {mean:.3f}")
+print(f"The Variance of arrival from feeder is {var:.3f}")
+print(f"The Standard deviation of arrival from feeder is {SD:.3f}")
+```
+# Collab link:
+https://colab.research.google.com/drive/1pocJqHtPK4BbdJ1XdC0au80oEaj_NG2D?usp=sharing
 
 
 # Output:
-
+<img width="712" height="125" alt="image" src="https://github.com/user-attachments/assets/3a5f24f7-bdd5-4657-bffc-6c0b84ffa689" />
 
 
 # Result: 
